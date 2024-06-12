@@ -15,17 +15,17 @@ describe('ColorDropper', () => {
     const dropperButton = getByRole('button')
     const canvas = getByTestId('canvas-with-image')
     const colorPreview = getByTestId('toolbar').lastChild
-    const path = dropperButton.querySelector('path')
+    const svg = dropperButton.querySelector('svg')
 
     // Assert initial state with button inactive and no color selected
-    expect(path).toHaveAttribute('fill', 'black')
+    expect(svg).toHaveStyle('fill: black')
     expect(colorPreview).toHaveStyle({ border: 'none' })
 
     // Simulate click event on dropper button
     fireEvent.click(dropperButton)
 
     // Assert button is active
-    expect(path).toHaveAttribute('fill', 'blue')
+    expect(svg).toHaveStyle('fill: blue')
 
     // Simulate mouse enter event on the canvas
     userEvent.hover(canvas)

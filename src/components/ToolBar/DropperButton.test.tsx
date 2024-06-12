@@ -5,14 +5,14 @@ import DropperButton from './DropperButton'
 describe('DropperButton', () => {
   test('renders the SVG path with the correct fill color when active is false', () => {
     render(<DropperButton active={false} onClickHandler={jest.fn()} />)
-    const path = screen.getByRole('button').querySelector('path')
-    expect(path).toHaveAttribute('fill', 'black')
+    const svg = screen.getByRole('button').querySelector('svg')
+    expect(svg).toHaveStyle('fill: black')
   })
 
   test('renders the SVG path with the correct fill color when active is true', () => {
     render(<DropperButton active={true} onClickHandler={jest.fn()} />)
-    const path = screen.getByRole('button').querySelector('path')
-    expect(path).toHaveAttribute('fill', 'blue')
+    const svg = screen.getByRole('button').querySelector('svg')
+    expect(svg).toHaveStyle('fill: blue')
   })
 
   test('calls the onClickHandler when the button is clicked', () => {
